@@ -20,3 +20,5 @@ A Flutter-based UI prototype for a modern clothing brand e-commerce app. This pr
 ---
  
 ## 🛠 Tech Stack
+
+- **Framework:** Flutter
