@@ -15,3 +15,7 @@ A Flutter-based UI prototype for a modern clothing brand e-commerce app. This pr
 - Product Browsing  
   ◌ Filterable grid (Popular/Men/Women/Sale)  
   ◌ Product cards with images, prices ($28-$48 range)
+- **Admin Dashboard**  
+  - View all employees
+  - Monitor active SOS alerts
+  - Resolve SOS alerts
