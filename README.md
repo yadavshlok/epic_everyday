@@ -2,9 +2,9 @@
 
 A Flutter-based UI prototype for a modern clothing brand e-commerce app. This project focuses on visual design and user experience with no backend integration.
 
-## ✨ Key Features (UI Only)  
+## ✨Key Features (UI Only)  
 
-● Brand Introduction Screens  
+U+25AA Brand Introduction Screens  
 ○   Animated splash screen with "Shop Now" action  
 ○   Onboarding flow with brand storytelling  
 
