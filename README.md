@@ -4,14 +4,14 @@ A Flutter-based UI prototype for a modern clothing brand e-commerce app. This pr
 
 ## ✨ Key Features (UI Only)  
 
-● **Brand Introduction Screens**  
+● Brand Introduction Screens  
   ○ Animated splash screen with "Shop Now" action  
   ○ Onboarding flow with brand storytelling  
 
-● **Authentication UI**  
+● Authentication UI  
   ○ Clean login/registration screens  
   ○ Email/password fields with validation UI  
 
-● **Product Browsing**  
+● Product Browsing  
   ○ Filterable grid (Popular/Men/Women/Sale)  
-  ○ Product cards with images, prices ($28-$48 range)  
+  ○ Product cards with images, prices ($28-$48 range)
