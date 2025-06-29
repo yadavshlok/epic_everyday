@@ -42,7 +42,7 @@ class _LoginState extends State<Login> {
                   SizedBox(height: 55,),
                   Text("Welcome Back!",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800,fontSize: 20),),
                   SizedBox(height: 25,),
-                  Text("Yay! You're back! Thanks for epic_everydayping with us.\n We have exited deals and promotions going\n on, grab your pick now!",style: TextStyle(color: Colors.white,fontSize: 12),),
+                  Text("Yay! You're back! Thanks for shopping with us.\n We have exited deals and promotions going\n on, grab your pick now!",style: TextStyle(color: Colors.white,fontSize: 12),),
                   SizedBox(height: 77,),
                   Text("LOG IN",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800,fontSize: 20),),
                 ],

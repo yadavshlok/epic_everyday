@@ -46,7 +46,7 @@ class _PageOneState extends State<PageOne> {
                         borderRadius: BorderRadius.circular(22)
                         // image: DecorationImage(image: ),
                       ),
-                      child: Center(child: Text("epic_everyday NOW",style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w600),)),
+                      child: Center(child: Text("SHOP NOW",style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w600),)),
                     ),
                   ),
                 )
