@@ -19,12 +19,12 @@ A Flutter-based UI prototype for a modern clothing brand e-commerce app. This pr
 
 ---
  
-## 🛠 Tech Stack
+## 🛠 Tech Stack  
 
-- **Frontend:** Dart (v3.3.0)
-- **Framework:** Flutter (v3.19.5) 
+- **Frontend:** Dart (v3.3.0)  
+- **Framework:** Flutter (v3.19.5)   
 - **Development Tools:**  
-  - Android Studio
-  - Flutter SDK
+  - Android Studio  
+  - Flutter SDK  
   - GitHub (Version Control)  
 
