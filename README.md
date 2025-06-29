@@ -33,13 +33,13 @@ A Flutter-based UI prototype for a modern clothing brand e-commerce app. This pr
 ## 🚀 Getting Started
 
 - **Clone the repo:**
-- ```bash
+  ```bash
   git clone https://github.com/your-username/epic_everyday.git
 
 - **Install dependencies:**
-- ```bash
+  ```bash
   flutter pub get
 
 - **Run the app:**
-- ```bash
+  ```bash
   flutter run
