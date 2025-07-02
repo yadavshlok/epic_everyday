@@ -16,7 +16,7 @@ class _CartState extends State<Cart> {
   dynamic prs_three = 19.00;
   dynamic cnt_four = 1;
   dynamic prs_four = 45.00;
-  dynamic total = 0;
+  dynamic total = 128.0;
 
   @override
   Widget build(BuildContext context) {
@@ -115,6 +115,7 @@ class _CartState extends State<Cart> {
                                                 setState(() {
                                                   cnt_one--;
                                                   prs_one -= 28;
+                                                  total = prs_one+prs_two+prs_three+prs_four;
                                                 });
                                               },
                                               child: Icon(Icons.remove,size: 15,)),
@@ -124,6 +125,7 @@ class _CartState extends State<Cart> {
                                                 setState(() {
                                                   cnt_one++;
                                                   prs_one += 28;
+                                                  total = prs_one+prs_two+prs_three+prs_four;
                                                 });
                                               },
                                               child: Icon(Icons.add,size: 15,))
@@ -203,15 +205,17 @@ class _CartState extends State<Cart> {
                                                   setState(() {
                                                     cnt_two--;
                                                     prs_two -= 36;
+                                                    total = prs_one+prs_two+prs_three+prs_four;
                                                   });
                                                 },
                                                 child: Icon(Icons.remove,size: 15,)),
-                                            Text("$cnt_one"),
+                                            Text("$cnt_two"),
                                             GestureDetector(
                                                 onTap: (){
                                                   setState(() {
                                                     cnt_two++;
                                                     prs_two += 36;
+                                                    total = prs_one+prs_two+prs_three+prs_four;
                                                   });
                                                 },
                                                 child: Icon(Icons.add,size: 15,))
@@ -291,15 +295,17 @@ class _CartState extends State<Cart> {
                                                   setState(() {
                                                     cnt_three--;
                                                     prs_three -= 19;
+                                                    total = prs_one+prs_two+prs_three+prs_four;
                                                   });
                                                 },
                                                 child: Icon(Icons.remove,size: 15,)),
-                                            Text("$cnt_one"),
+                                            Text("$cnt_three"),
                                             GestureDetector(
                                                 onTap: (){
                                                   setState(() {
                                                     cnt_three++;
                                                     prs_three += 19;
+                                                    total = prs_one+prs_two+prs_three+prs_four;
                                                   });
                                                 },
                                                 child: Icon(Icons.add,size: 15,))
@@ -379,15 +385,17 @@ class _CartState extends State<Cart> {
                                                   setState(() {
                                                     cnt_four--;
                                                     prs_four -= 45;
+                                                    total = prs_one+prs_two+prs_three+prs_four;
                                                   });
                                                 },
                                                 child: Icon(Icons.remove,size: 15,)),
-                                            Text("$cnt_one"),
+                                            Text("$cnt_four"),
                                             GestureDetector(
                                                 onTap: (){
                                                   setState(() {
                                                     cnt_four++;
                                                     prs_four += 45;
+                                                    total = prs_one+prs_two+prs_three+prs_four;
                                                   });
                                                 },
                                                 child: Icon(Icons.add,size: 15,))
