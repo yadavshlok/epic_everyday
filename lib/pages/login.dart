@@ -1,4 +1,6 @@
+import 'package:epic_everyday/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:epic_everyday/pages/home.dart';
 import 'package:epic_everyday/pages/register.dart';
 
@@ -14,6 +16,7 @@ class _LoginState extends State<Login> {
   var showPass = false;
   var mail = false;
   var pass = false;
+  var remb = false;
   TextEditingController mailController = TextEditingController();
   TextEditingController passController = TextEditingController();
 
@@ -36,7 +39,7 @@ class _LoginState extends State<Login> {
                 children: [
                   GestureDetector(
                       onTap: (){
-                        Navigator.pop(context);
+                        Get.back();
                       },
                       child: Icon(Icons.arrow_back,color: Colors.white,)),
                   SizedBox(height: 55,),
@@ -118,22 +121,20 @@ class _LoginState extends State<Login> {
                       padding: EdgeInsets.only(left: 8,right: 5),
                       child: Row(
                         children: [
-                          Container(
-                            height: 16,
-                            width: 16,
-                            decoration: BoxDecoration(
-                              color: Colors.grey
-                            ),
+                          GestureDetector(
+                            onTap: (){
+                              setState(() {
+                                remb = !remb;
+                              });
+                            },
+                            child: (remb)? Icon(Icons.check_box_outlined,color: AppColors.primaryColor,) : Icon(Icons.check_box_outline_blank,color: AppColors.primaryColor,),
                           ),
                           SizedBox(width: 15,),
                           Text("Remember me",style: TextStyle(fontSize: 12),),
                           SizedBox(width: 85,),
                           GestureDetector(
                             onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)
-                              {
-                                return Register();
-                              }));
+
                             },
                               child: Text("Forgot Password?",style: TextStyle(color: Color(0xFFFF5E6E),fontWeight: FontWeight.w500,fontSize: 12),))
                         ],
@@ -146,12 +147,7 @@ class _LoginState extends State<Login> {
                           onTap: (){
                             if(_demoKey.currentState!.validate())
                               {
-                                Navigator.push(
-                                    context, MaterialPageRoute(builder: (context)
-                                {
-                                  return Home();
-                                }
-                                ));
+                                Get.to(Home());
                               };
                           },
                           child: Container(
@@ -175,10 +171,7 @@ class _LoginState extends State<Login> {
                         Text("Not registered yet? ",style: TextStyle(fontSize: 13,color: Colors.grey.shade600),),
                         GestureDetector(
                             onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)
-                              {
-                                return Register();
-                              }));
+                              Get.to(Register());
                             },
                             child: Text("Create an Account",style: TextStyle(fontSize: 13,color: Color(0xFFFF5E6E),fontWeight: FontWeight.w500),)),
                       ],

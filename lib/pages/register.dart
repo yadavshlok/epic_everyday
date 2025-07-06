@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:epic_everyday/pages/login.dart';
 
 class Register extends StatefulWidget {
@@ -37,7 +38,7 @@ class _RegisterState extends State<Register> {
                 children: [
                   GestureDetector(
                       onTap: (){
-                        Navigator.pop(context);
+                        Get.back();
                       },
                       child: Icon(Icons.arrow_back,color: Colors.white,)),
                   SizedBox(height: 50,),
@@ -48,10 +49,7 @@ class _RegisterState extends State<Register> {
                       Text("Already have an Account? ",style: TextStyle(color: Colors.white,fontSize: 12),),
                       GestureDetector(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)
-                          {
-                            return Login();
-                          }));
+                          Get.to(Login());
                         },
                           child: Text("Log in",style: TextStyle(fontSize: 13,color: Colors.white,fontWeight: FontWeight.w700,decoration: TextDecoration.underline,decorationColor: Colors.white),)),
 
@@ -167,12 +165,7 @@ class _RegisterState extends State<Register> {
                           onTap: (){
                             if(_demoKey.currentState!.validate())
                             {
-                              Navigator.push(
-                                  context, MaterialPageRoute(builder: (context)
-                              {
-                                return Login();
-                              }
-                              ));
+                              Get.to(Login());
                             };
                           },
                           child: Container(

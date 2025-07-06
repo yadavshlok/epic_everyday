@@ -1,11 +1,17 @@
+import 'package:epic_everyday/pages/item_four.dart';
+import 'package:epic_everyday/pages/item_one.dart';
+import 'package:epic_everyday/pages/item_three.dart';
+import 'package:epic_everyday/pages/item_two.dart';
+import 'package:epic_everyday/utils/app_colors.dart';
+import 'package:epic_everyday/utils/text_styles.dart';
+import 'package:epic_everyday/widgets/favourite.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:epic_everyday/pages/favorite.dart';
-import 'package:epic_everyday/pages/page_one.dart';
+import 'package:epic_everyday/pages/welcome_page.dart';
 import 'package:epic_everyday/pages/search.dart';
-
 import 'cart.dart';
-import 'item_one.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -20,6 +26,9 @@ class _HomeState extends State<Home> {
   var women = false;
   var sale = false;
   var fav1 = false;
+  var fav2 = false;
+  var fav3 = false;
+  var fav4 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +42,7 @@ class _HomeState extends State<Home> {
               children: [
                 GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)
-                    {
-                      return PageOne();
-                    }
-                    ));
+                    Get.to(WelcomePage());
                   },
                     child: Text("Epic Everyday",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w800),)),
                 SizedBox(width: 56,),
@@ -45,23 +50,13 @@ class _HomeState extends State<Home> {
                 SizedBox(width: 15,),
                 GestureDetector(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder:
-                      (context)
-                          {
-                            return Cart();
-                          }
-                      ));
+                      Get.to(Cart());
                     },
                     child: Icon(Icons.shopping_bag_outlined)),
                 SizedBox(width: 15,),
                 GestureDetector(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder:
-                          (context)
-                      {
-                        return Favorite();
-                      }
-                      ));
+                      Get.to(Favorite());
                     },
                     child: Icon(Icons.favorite_border)),
                 SizedBox(width: 15,),
@@ -200,7 +195,7 @@ class _HomeState extends State<Home> {
               border: Border.all(color: Colors.grey.shade300)
             ),
           ),
-          SizedBox(height: 45,),
+          SizedBox(height: 35,),
           Row(
             children: [
               SizedBox(width: 35,),
@@ -213,111 +208,193 @@ class _HomeState extends State<Home> {
               Icon(Icons.square),
             ],
           ),
-          SizedBox(height: 45,),
-          Padding(
-            padding: EdgeInsets.only(left: 12,right: 12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Expanded(
+            child: GridView.count(
+                crossAxisCount: 2,
+              mainAxisSpacing: 15,
+              crossAxisSpacing: 15,
+              childAspectRatio: 0.55,
+              padding: EdgeInsets.all(30),
               children: [
                 Column(
                   children: [
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)
-                        {
-                          return ItemOne();
-                        }
-                        ));
-                      },
-                      child: Container(
-                        height: 200,
-                        width: 160,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFF1F4FB),
-                          borderRadius: BorderRadius.circular(30),
-                          image: DecorationImage(image: AssetImage("assets/images/greyjacket.png"),fit: BoxFit.values[6])
-                        ),
-                        child:
-                        Padding(
-                          padding: EdgeInsets.only(left: 105,bottom: 145),
-                          child: GestureDetector(
-                            onTap: (){
-                              setState(() {
-                                fav1 = !fav1;
-                              });
-                            },
-                            child: Container(
-                                child: fav1?
-                                Icon(Icons.favorite,color: Color(0xFFFF5E6E),):Icon(Icons.favorite_border),),
+                    Container(
+                      height: 211,
+                      width: 185,
+                      decoration: BoxDecoration(
+                        color: AppColors.bgColor,
+                        borderRadius: BorderRadius.circular(30)
+                      ),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 35,
+                              left: 18,
+                              child: GestureDetector(
+                                onTap: (){
+                                  Get.to(ItemOne(),arguments: fav1);
+                                },
+                                child: Container(
+                                  height: 135,
+                                  child: Image(image: AssetImage("assets/images/greyjacket.png")),
+                                ),
+                              )
                           ),
-                        )
+                          Positioned(
+                            left: 128,
+                              top: 15,
+                              child: Favourite(
+                                  isFav: !fav1,
+                                  ontap: (){
+                                    setState(() {
+                                      fav1 = !fav1;
+                                    });
+                                  }
+                              )
+                          )
+                        ],
                       ),
                     ),
-                    SizedBox(height: 12,),
-                    Text("Grey Jacket",style: TextStyle(fontWeight: FontWeight.w800),),
-                    Text("\$28.00 USD",style: TextStyle(fontSize: 11,fontWeight: FontWeight.w700,color: Colors.grey.shade600),)
+                    SizedBox(height: 3,),
+                    Text("Grey Jacket",style: TextStyles.h4),
+                    Text("\$28.00 USD",style: TextStyles.h4.copyWith(color: Colors.grey.shade500))
                   ],
                 ),
                 Column(
                   children: [
                     Container(
-                      height: 200,
-                      width: 160,
+                      height: 211,
+                      width: 185,
                       decoration: BoxDecoration(
-                          color: Color(0xFFF1F4FB),
-                          borderRadius: BorderRadius.circular(30),
-                          image: DecorationImage(image: AssetImage("assets/images/whitetee.png"),fit: BoxFit.scaleDown)
+                          color: AppColors.bgColor,
+                          borderRadius: BorderRadius.circular(30)
+                      ),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                              top: 35,
+                              left: 20,
+                              child: GestureDetector(
+                                onTap: (){
+                                  Get.to(ItemTwo(),arguments: fav2);
+                                },
+                                child: Container(
+                                  height: 130,
+                                  child: Image(image: AssetImage("assets/images/whitetee.png")),
+                                ),
+                              )
+                          ),
+                          Positioned(
+                              left: 128,
+                              top: 15,
+                              child: Favourite(
+                                  isFav: !fav2,
+                                  ontap: (){
+                                    setState(() {
+                                      fav2 = !fav2;
+                                    });
+                                  }
+                              )
+                          )
+                        ],
                       ),
                     ),
-                    SizedBox(height: 12,),
-                    Text("White T-Shirt",style: TextStyle(fontWeight: FontWeight.w800),),
-                    Text("\$36.00 USD",style: TextStyle(fontSize: 11,fontWeight: FontWeight.w700,color: Colors.grey.shade600),)
+                    SizedBox(height: 3,),
+                    Text("White T-Shirt",style: TextStyles.h4),
+                    Text("\$36.00 USD",style: TextStyles.h4.copyWith(color: Colors.grey.shade500))
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                      height: 211,
+                      width: 185,
+                      decoration: BoxDecoration(
+                          color: AppColors.bgColor,
+                          borderRadius: BorderRadius.circular(30)
+                      ),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                              top: 35,
+                              left: 21,
+                              child: GestureDetector(
+                                onTap: (){
+                                  Get.to(ItemThree(),arguments: fav3);
+                                },
+                                child: Container(
+                                  height: 138,
+                                  child: Image(image: AssetImage("assets/images/hoodie.png")),
+                                ),
+                              )
+                          ),
+                          Positioned(
+                              left: 128,
+                              top: 15,
+                              child: Favourite(
+                                  isFav: !fav3,
+                                  ontap: (){
+                                    setState(() {
+                                      fav3 = !fav3;
+                                    });
+                                  }
+                              )
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 3,),
+                    Text("Hoodie",style: TextStyles.h4),
+                    Text("\$19.00 USD",style: TextStyles.h4.copyWith(color: Colors.grey.shade500))
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                      height: 211,
+                      width: 185,
+                      decoration: BoxDecoration(
+                          color: AppColors.bgColor,
+                          borderRadius: BorderRadius.circular(30)
+                      ),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                              top: 35,
+                              left: 31,
+                              child: GestureDetector(
+                                onTap: (){
+                                  Get.to(ItemFour(),arguments: fav4);
+                                },
+                                child: Container(
+                                  height: 145,
+                                  child: Image(image: AssetImage("assets/images/greycoat.png")),
+                                ),
+                              )
+                          ),
+                          Positioned(
+                              left: 128,
+                              top: 15,
+                              child: Favourite(
+                                  isFav: !fav4,
+                                  ontap: (){
+                                    setState(() {
+                                      fav4 = !fav4;
+                                    });
+                                  }
+                              )
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 3,),
+                    Text("Grey Coat",style: TextStyles.h4),
+                    Text("\$45.00 USD",style: TextStyles.h4.copyWith(color: Colors.grey.shade500))
                   ],
                 ),
               ],
             ),
-          ),
-          SizedBox(height: 25,),
-          Padding(
-            padding: EdgeInsets.only(left: 12,right: 12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    Container(
-                      height: 200,
-                      width: 160,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFF1F4FB),
-                          borderRadius: BorderRadius.circular(30),
-                          image: DecorationImage(image: AssetImage("assets/images/hoodie.png"),fit: BoxFit.scaleDown),
-                      ),
-                    ),
-                    SizedBox(height: 12,),
-                    Text("Hoodie",style: TextStyle(fontWeight: FontWeight.w800),),
-                    Text("\$19.00 USD",style: TextStyle(fontSize: 11,fontWeight: FontWeight.w700,color: Colors.grey.shade600),)
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      height: 200,
-                      width: 160,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFF1F4FB),
-                          borderRadius: BorderRadius.circular(30),
-                          image: DecorationImage(image: AssetImage("assets/images/greycoat.png"),fit: BoxFit.scaleDown),
-                      ),
-                    ),
-                    SizedBox(height: 12,),
-                    Text("Grey Coat",style: TextStyle(fontWeight: FontWeight.w800),),
-                    Text("\$45.00 USD",style: TextStyle(fontSize: 11,fontWeight: FontWeight.w700,color: Colors.grey.shade600),)
-                  ],
-                ),
-              ],
-            ),
-          ),
+          )
         ],
       ),
     );

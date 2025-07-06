@@ -1,6 +1,8 @@
+import 'package:epic_everyday/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:epic_everyday/pages/page_one.dart';
+import 'package:get/get.dart';
+import 'package:epic_everyday/pages/welcome_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,13 +16,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: PageOne(),
+      initialRoute: AppRoutes.INITIAL_ROUTE,
+      getPages: AppRoutes.navigation,
     );
   }
 }
