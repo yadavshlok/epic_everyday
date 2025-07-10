@@ -1,8 +1,8 @@
-# Epic Everyday - Clothing Brand Shop (UI Only)
+# Epic Everyday - Clothing Brand Shop
 
-A Flutter-based UI prototype for a modern clothing brand e-commerce app. This project focuses on visual design and user experience with no backend integration.
+A Flutter-based prototype for a modern clothing brand e-commerce app. This project focuses on visual design and user experience with no backend integration.
 
-## ✨Key Features (UI Only)  
+## ✨Key Features
 
 - **Brand Introduction Screens**  
   - Animated splash screen with "Shop Now" action
